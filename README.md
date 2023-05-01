@@ -69,3 +69,22 @@ fund detail <code>
 fund detail 510300
 ```
 
+### 4. 获取基金历史净值
+
+使用 `nav` 命令，可以获取指定基金的历史净值数据，默认最近20天。
+
+```bash
+fund nav <code> [options]
+```
+
+**选项：**
+- `-s, --start <data>`：开始日期，格式为 `yyyy-mm-dd`。
+- `-e, --end <data>`：结束日期，格式为 `yyyy-mm-dd`。
+- `-i, --interval <value>`：间隔频率，可选值为 `month` 或 `year`。
+- `-c, --cumulative`：显示累计净值。
+- `-r, --reverse`：反转结果顺序。
+
+**示例：**
+```bash
+fund nav 510300 -s 2024-01-01 -e 2024-12-31 -i month
+```

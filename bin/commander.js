@@ -4,7 +4,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { program } from 'commander';
-import { dig, search, detail } from '../index.js';
+import { dig, search, detail, getNetAssetValue } from '../index.js';
 
 const exportAsCSV = async function (filename, data) {
     const folder = path.join(os.homedir(), 'Documents', 'Fund-digger');
@@ -65,6 +65,19 @@ program.command('detail')
     .action(async (code) => {
         const result = await detail(code);
         console.log(JSON.stringify(result, null, 4));
+    });
+
+program.command('nav')
+    .description('get historical fund net asset value')
+    .argument('<code>', 'fund code (6 digits)')
+    .option('-s, --start <date>', 'start date in format: yyyy-mm-dd')
+    .option('-e, --end <date>', 'end date in format: yyyy-mm-dd')
+    .option('-i, --interval <value>', 'interval frequency: month or year')
+    .option('-c, --cumulative', 'show cumulative net asset value')
+    .option('-r, --reverse', 'reverse the order of results')
+    .action(async (code, options) => {
+        const result = await getNetAssetValue(code, options);
+        console.log(result.map(item => item.join('\t')).join('\n'));
     });
 
 program.parse();
