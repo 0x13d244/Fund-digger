@@ -38,3 +38,4 @@ const dig = async function (keyword, options = {}) {
 };
 
 export { dig, search, detail };
+export { getNetAssetValue } from './digger/nav.js';
