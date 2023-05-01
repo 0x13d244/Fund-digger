@@ -1,0 +1,27 @@
+{
+  "name": "fund-digger",
+  "version": "1.0.0",
+  "description": "Fund information digger",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "fund": "./bin/commander.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linrubo/Fund-digger.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/linrubo/Fund-digger/issues"
+  },
+  "homepage": "https://github.com/linrubo/Fund-digger#readme",
+  "dependencies": {
+    "commander": "^10.0.1"
+  }
+}
