@@ -88,3 +88,19 @@ fund nav <code> [options]
 ```bash
 fund nav 510300 -s 2024-01-01 -e 2024-12-31 -i month
 ```
+
+### 5. 获取基金年度回报
+
+使用 `returns` 命令，可以获取指定基金的年度回报数据。
+
+```bash
+fund returns <code> [options]
+```
+
+**选项：**
+- `-r, --reverse`：反转结果顺序。
+
+**示例：**
+```bash
+fund returns 510300
+```
