@@ -40,3 +40,4 @@ const dig = async function (keyword, options = {}) {
 export { dig, search, detail };
 export { getNetAssetValue } from './digger/nav.js';
 export { getAnnualReturns } from './digger/returns.js';
+export { getDividends } from './digger/dividends.js';

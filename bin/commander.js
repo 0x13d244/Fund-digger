@@ -4,7 +4,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { program } from 'commander';
-import { dig, search, detail, getNetAssetValue, getAnnualReturns } from '../index.js';
+import { dig, search, detail, getNetAssetValue, getAnnualReturns, getDividends } from '../index.js';
 
 const exportAsCSV = async function (filename, data) {
     const folder = path.join(os.homedir(), 'Documents', 'Fund-digger');
@@ -86,6 +86,16 @@ program.command('returns')
     .option('-r, --reverse', 'reverse the order of results')
     .action(async (code, options) => {
         const result = await getAnnualReturns(code, options);
+        console.log(result.map(item => item.join('\t')).join('\n'));
+    });
+
+program.command('dividends')
+    .description('get historical fund dividends')
+    .argument('<code>', 'fund code (6 digits)')
+    .option('-y, --yearly', 'show yearly dividends')
+    .option('-r, --reverse', 'reverse the order of results')
+    .action(async (code, options) => {
+        const result = await getDividends(code, options);
         console.log(result.map(item => item.join('\t')).join('\n'));
     });
 

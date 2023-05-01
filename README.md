@@ -104,3 +104,20 @@ fund returns <code> [options]
 ```bash
 fund returns 510300
 ```
+
+### 6. 获取基金分红数据
+
+使用 `dividends` 命令，可以获取指定基金的分红数据。
+
+```bash
+fund dividends <code> [options]
+```
+
+**选项：**
+- `-y, --yearly`：显示年度分红数据。
+- `-r, --reverse`：反转结果顺序。
+
+**示例：**
+```bash
+fund dividends 510300
+```
